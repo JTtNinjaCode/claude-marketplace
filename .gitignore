@@ -1,6 +1,9 @@
 # Downloaded subtitle files and translated output
 output/
 
+# Claude Code internal files
+.orphaned_at
+
 # OS
 .DS_Store
 Thumbs.db
