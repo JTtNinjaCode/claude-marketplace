@@ -1,6 +1,6 @@
 {
   "name": "yt-sublearn",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Download YouTube English subtitles, translate to bilingual EN/ZH format, and generate a video summary for English learning",
   "author": {
     "name": "Brian"
