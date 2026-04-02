@@ -1,5 +1,5 @@
 ---
-name: yt-translate
+name: yt-sublearn
 description: Download English subtitles from a YouTube video, translate them into a bilingual EN/ZH file with timestamps, and generate a concise abstract-style summary of the video. Use this skill when the user wants to study English through YouTube content.
 ---
 
@@ -9,7 +9,7 @@ You help the user learn English by processing YouTube videos into bilingual stud
 
 The user calls this skill as:
 ```
-/yt-translate <youtube_url> [output_dir]
+/yt-sublearn <youtube_url> [output_dir]
 ```
 
 - `<youtube_url>` — required, the YouTube video URL
@@ -39,7 +39,7 @@ Compute the bilingual output path by replacing `.en.srt` with `_bilingual.txt` i
 
 ### Step 3 — Translate via Haiku Subagent
 
-Spawn a `yt-translate:yt-subtitle-translator` Agent to perform the translation. Pass it a prompt containing:
+Spawn a `yt-sublearn:yt-subtitle-translator` Agent to perform the translation. Pass it a prompt containing:
 
 1. The complete raw SRT file content (verbatim, inside a code block)
 2. The absolute bilingual output file path

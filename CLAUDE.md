@@ -1,4 +1,4 @@
-# yt-translate
+# yt-sublearn
 
 A Claude Code plugin for English learning via YouTube subtitles.
 
@@ -6,13 +6,13 @@ A Claude Code plugin for English learning via YouTube subtitles.
 
 In Claude Code:
 ```
-/plugin install yt-translate@<github-username>/<repo-name>
+/plugin install yt-sublearn@<github-username>/<repo-name>
 ```
 
 ## Usage
 
 ```
-/yt-translate <youtube_url> [output_dir]
+/yt-sublearn <youtube_url> [output_dir]
 ```
 
 `output_dir` defaults to `./output/`. Only English subtitles are supported.
@@ -23,8 +23,8 @@ In Claude Code:
 .
 ├── .claude-plugin/plugin.json              — plugin metadata
 ├── skills/
-│   └── yt-translate/
-│       ├── SKILL.md                        — /yt-translate skill definition
+│   └── yt-sublearn/
+│       ├── SKILL.md                        — /yt-sublearn skill definition
 │       └── scripts/
 │           └── download.py                 — PEP 723 standalone script (yt-dlp)
 └── agents/

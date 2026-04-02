@@ -1,4 +1,4 @@
-# yt-translate
+# yt-sublearn
 
 A Claude Code plugin for English learning through YouTube videos.
 
@@ -16,7 +16,7 @@ Given a YouTube URL, it:
 
 In Claude Code, run:
 ```
-/plugin install yt-translate@<github-username>/<repo-name>
+/plugin install yt-sublearn@<github-username>/<repo-name>
 ```
 
 No other setup required. Dependencies (yt-dlp) are downloaded automatically on first use.
@@ -24,7 +24,7 @@ No other setup required. Dependencies (yt-dlp) are downloaded automatically on f
 ## Usage
 
 ```
-/yt-translate <youtube_url> [output_dir]
+/yt-sublearn <youtube_url> [output_dir]
 ```
 
 | Argument | Description |
@@ -35,7 +35,7 @@ No other setup required. Dependencies (yt-dlp) are downloaded automatically on f
 **Example:**
 
 ```
-/yt-translate https://www.youtube.com/watch?v=dQw4w9WgXcQ ./output/
+/yt-sublearn https://www.youtube.com/watch?v=dQw4w9WgXcQ ./output/
 ```
 
 **Output files (saved to `output_dir`):**
@@ -50,9 +50,9 @@ If the video has no English subtitles, the skill stops with a clear error messag
 ## How It Works
 
 ```
-/yt-translate
+/yt-sublearn
     │
-    ├─ 1. uv run skills/yt-translate/scripts/download.py   (PEP 723, auto-installs yt-dlp)
+    ├─ 1. uv run skills/yt-sublearn/scripts/download.py   (PEP 723, auto-installs yt-dlp)
     │       └─ validates English subs exist → downloads .en.srt
     │
     ├─ 2. haiku subagent                                    (lightweight, token-efficient)
@@ -70,8 +70,8 @@ The download script uses [PEP 723](https://peps.python.org/pep-0723/) inline scr
 .
 ├── .claude-plugin/plugin.json              — plugin metadata
 ├── skills/
-│   └── yt-translate/
-│       ├── SKILL.md                        — /yt-translate skill definition
+│   └── yt-sublearn/
+│       ├── SKILL.md                        — /yt-sublearn skill definition
 │       └── scripts/
 │           └── download.py                 — PEP 723 standalone script (yt-dlp)
 └── agents/
