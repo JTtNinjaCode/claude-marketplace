@@ -91,8 +91,12 @@ The download script uses [PEP 723](https://peps.python.org/pep-0723/) inline scr
 
 ```
 plugin/
-├── .claude-plugin/plugin.json          — plugin metadata
-├── scripts/download.py                 — PEP 723 standalone script (yt-dlp)
-├── skills/yt-translate/SKILL.md        — /yt-translate skill definition
-└── agents/yt-subtitle-translator.md    — haiku translator subagent
+├── .claude-plugin/plugin.json              — plugin metadata
+├── skills/
+│   └── yt-translate/
+│       ├── SKILL.md                        — /yt-translate skill definition
+│       └── scripts/
+│           └── download.py                 — PEP 723 standalone script (yt-dlp)
+└── agents/
+    └── yt-subtitle-translator.md           — haiku translator subagent
 ```

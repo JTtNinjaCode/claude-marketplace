@@ -19,29 +19,12 @@ The user calls this skill as:
 
 ## Workflow
 
-### Step 1 — Locate the plugin directory
-
-Run this Bash command to find where this plugin is installed:
-
-```bash
-python3 -c "
-import json, os
-data = json.load(open(os.path.expanduser('~/.claude/plugins/installed_plugins.json')))
-for key, entries in data.get('plugins', {}).items():
-    if 'yt-translate' in key:
-        print(entries[0]['installPath'])
-        break
-"
-```
-
-Save the output as `PLUGIN_DIR`. If the command returns nothing, tell the user the plugin is not registered and stop.
-
-### Step 2 — Download English Subtitles
+### Step 1 — Download English Subtitles
 
 Run:
 
 ```bash
-uv run "$PLUGIN_DIR/scripts/download.py" <youtube_url> <output_dir>
+uv run "${CLAUDE_SKILL_DIR}/scripts/download.py" <youtube_url> <output_dir>
 ```
 
 - `uv run` automatically installs yt-dlp into an isolated cache and runs the script — no manual setup needed.
