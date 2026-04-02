@@ -6,7 +6,7 @@ A Claude Code plugin marketplace for productivity and learning tools.
 
 Add this marketplace in Claude Code:
 ```
-/plugin marketplace add JTtNinjaCode/yt-sublearn
+/plugin marketplace add JTtNinjaCode/claude-marketplace
 ```
 
 Then install individual plugins:

@@ -5,7 +5,7 @@ A Claude Code plugin marketplace. Add new plugins under `plugins/<plugin-name>/`
 ## Install (in Claude Code)
 
 ```
-/plugin marketplace add JTtNinjaCode/yt-sublearn
+/plugin marketplace add JTtNinjaCode/claude-marketplace
 /plugin install yt-sublearn@JTtNinjaCode
 ```
 
