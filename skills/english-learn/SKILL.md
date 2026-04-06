@@ -1,10 +1,10 @@
 ---
 name: english-learn
-description: 英文學習工具（使用者程度 B2）。支援多種輸入：英文單字/片語→繁中翻譯+造句、中文→英文翻譯+造句、圖片→內容擷取+翻譯+難字造句、英文考題（多益/托福/學測等）→解題+解析。輸入單字或片語時自動記錄至當前目錄的單字表。
-allowed-tools: Read Bash
+description: 英文學習工具（使用者程度 B2）。支援多種輸入：英文單字/片語→繁中翻譯+造句、中文單字→英文翻譯+造句、中文句子→英文翻譯、圖片→判斷是否為考題再決定處理方式。輸入單字或片語時自動記錄至當前目錄的單字表。
+allowed-tools: Bash
 ---
 
-使用者英文程度為 B2，造句與解說的難度請對應 B2，但難字分析要找出 B2 以上的詞彙。
+使用者英文程度為 B2，造句與解說的難度請對應 B2。
 
 根據輸入類型自動判斷，直接給結果，不要多餘說明。
 
@@ -40,51 +40,41 @@ allowed-tools: Read Bash
 
 ---
 
-## 類型二B：中文句子
+## 類型三：中文句子
 
-只翻譯，不造句，不記錄單字表。
+只翻譯成英文，不造句，不記錄。
 
 格式：
 **[英文翻譯]**
 
 ---
 
-## 類型三：圖片輸入
+## 類型四：圖片（使用者直接貼上）
 
-用 Read 工具讀取圖片。
+圖片由使用者直接貼入對話，不需讀取檔案。
 
-1. **內容摘要**（繁中，2-3句）
-2. **全文翻譯**（如果是文章/段落）
-3. **難字列表**（挑出 B2+ 的單字或片語，5-10個）
+判斷圖片內容：
 
-格式：
-| 單字/片語 | 音標 | 繁中意思 | 例句 |
-|-----------|------|----------|------|
-| [word] | /.../ | [意思] | [例句] |
+### 4A：英文考題（多益、托福、學測、指考、各科英文題目等）
 
-完成後，將所有難字記錄至單字表（見「單字表記錄規則」）。
+辨識標誌：有選項（A/B/C/D）、填空題、閱讀測驗、語法題等。
 
----
+1. **答案**（直接給）
+2. **解析**（繁中，針對 B2，說明為什麼）
 
-## 類型四：英文考題（多益、托福、學測、指考等）
+逐題作答，不需重述題目。
 
-1. **題目重述**（確認讀懂題目）
-2. **答案**（直接給答案）
-3. **解析**（說明為什麼，用繁中解釋，針對 B2 程度）
-4. **關鍵字彙**（考題中出現的重要單字，附繁中意思）
+### 4B：其他英文內容（教科書、文章、說明文字等）
 
-如果是整份題目，逐題作答。
+只翻譯成繁體中文，不分析，不造句，不記錄。
 
 ---
 
 ## 單字表記錄規則
 
 用 Bash 呼叫 `$CLAUDE_SKILL_DIR/scripts/save_vocab.py`，
-它會同時更新當前目錄的 `vocabulary.json` 和 `anki_export.txt`（Anki 匯入格式）。
+同時更新當前目錄的 `vocabulary.json` 和 `anki_export.txt`。
 
-`source` 填入來源：`manual`（使用者直接輸入）、`image`（圖片擷取）、`exam`（考題）。
-
-呼叫方式：
 ```bash
 python3 "$CLAUDE_SKILL_DIR/scripts/save_vocab.py" \
   --word "WORD" \
@@ -94,12 +84,9 @@ python3 "$CLAUDE_SKILL_DIR/scripts/save_vocab.py" \
   --source "SOURCE"
 ```
 
-欄位說明：
-- `--word`：英文單字或片語
-- `--type`：詞性（adj / n / v / phrase 等）
-- `--translation`：繁中意思
-- `--example`：英文例句（第一句造句即可）
-- `--source`：來源
+- `--type`：adj / n / v / phrase 等
+- `--example`：第一句造句
+- `--source`：`manual`（直接輸入）
 
 ---
 
@@ -122,23 +109,6 @@ python3 "$CLAUDE_SKILL_DIR/scripts/save_vocab.py" \
 
 ---
 
-**輸入：** `give it a shot`
-
-**give it a shot**
-繁中：試試看、嘗試一下
-
-造句：
-1. I've never cooked Thai food before, but I'll give it a shot.
-   → 我從沒做過泰國菜，但我來試試看。
-2. You should give it a shot — you might surprise yourself.
-   → 你應該試試看，說不定會讓自己驚喜。
-3. He decided to give it a shot even though the odds were slim.
-   → 儘管機率不大，他還是決定試一試。
-
-*已記錄至單字表。*
-
----
-
 **輸入：** `韌性`
 
 **resilience**
@@ -153,3 +123,25 @@ python3 "$CLAUDE_SKILL_DIR/scripts/save_vocab.py" \
    → 心理韌性和體能一樣重要。
 
 *已記錄至單字表。*
+
+---
+
+**輸入：** `我需要更多時間思考這件事`（中文句子）
+
+**I need more time to think this over.**
+
+---
+
+**輸入：** 圖片（教科書段落）
+
+（直接輸出繁中翻譯）
+
+---
+
+**輸入：** 圖片（多益考題）
+
+Q1. 答案：(B)
+解析：...（繁中說明）
+
+Q2. 答案：(A)
+解析：...
