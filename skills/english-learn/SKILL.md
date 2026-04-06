@@ -79,46 +79,27 @@ allowed-tools: Read Bash
 
 ## 單字表記錄規則
 
-單字表位置：當前目錄的 `vocabulary.json`
+用 Bash 呼叫 `$CLAUDE_SKILL_DIR/scripts/save_vocab.py`，
+它會同時更新當前目錄的 `vocabulary.json` 和 `anki_export.txt`（Anki 匯入格式）。
 
-用 Bash 工具讀取並更新此檔案。若檔案不存在則建立。
+`source` 填入來源：`manual`（使用者直接輸入）、`image`（圖片擷取）、`exam`（考題）。
 
-JSON 結構：
-```json
-{
-  "vocabulary": [
-    {
-      "word": "resilient",
-      "type": "adj",
-      "translation": "有韌性的",
-      "example": "She remained resilient despite the setbacks.",
-      "source": "manual",
-      "date": "2026-04-06"
-    }
-  ]
-}
-```
-
-`source` 填入來源：`manual`（使用者直接輸入）或 `image`（圖片擷取）或 `exam`（考題）。
-
-新增時避免重複（比對 `word` 欄位，忽略大小寫）。
-
-更新指令範例（用 Python inline，避免 jq 依賴問題）：
+呼叫方式：
 ```bash
-python3 -c "
-import json, os, datetime
-path = 'vocabulary.json'
-data = json.load(open(path)) if os.path.exists(path) else {'vocabulary': []}
-existing = {v['word'].lower() for v in data['vocabulary']}
-new_word = {'word': 'WORD', 'type': 'TYPE', 'translation': 'TRANS', 'example': 'EXAMPLE', 'source': 'SOURCE', 'date': str(datetime.date.today())}
-if new_word['word'].lower() not in existing:
-    data['vocabulary'].append(new_word)
-    json.dump(data, open(path, 'w'), ensure_ascii=False, indent=2)
-    print('已記錄：' + new_word['word'])
-else:
-    print('已存在，跳過：' + new_word['word'])
-"
+python3 "$CLAUDE_SKILL_DIR/scripts/save_vocab.py" \
+  --word "WORD" \
+  --type "TYPE" \
+  --translation "TRANS" \
+  --example "EXAMPLE" \
+  --source "SOURCE"
 ```
+
+欄位說明：
+- `--word`：英文單字或片語
+- `--type`：詞性（adj / n / v / phrase 等）
+- `--translation`：繁中意思
+- `--example`：英文例句（第一句造句即可）
+- `--source`：來源
 
 ---
 
