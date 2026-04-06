@@ -1,6 +1,6 @@
 ---
 name: english-learn
-description: English learning tool for B2-level learners. Supports multiple input types — English word/phrase → Traditional Chinese translation + example sentences, Chinese word → English translation + example sentences, Chinese sentence → English translation only, image → solve exam questions or translate content. Append -s to save to vocabulary list.
+description: English learning tool for B2-level learners. Supports multiple input types — English word/phrase → Traditional Chinese translation + example sentences, Chinese word → English translation + example sentences, Chinese sentence → English translation only, image of exam question (TOEIC/TOEFL/GSAT) → solve and explain in Chinese, image of other English content (textbooks, articles, any subject) → sentence-by-sentence Chinese translation only, never solve or analyze. Append -s to save to vocabulary list.
 allowed-tools: Bash
 ---
 
@@ -61,9 +61,9 @@ Never save.
 
 ---
 
-## Type 4: Chinese Sentence
+## Type 4: Chinese Sentence (including mixed Chinese/English sentences)
 
-Translate to English only. No example sentences, no saving.
+Treat any sentence where the main structure is Chinese as Type 4, even if it contains embedded English terms (e.g., "wafer scale chip 是最新技術"). Translate the full sentence to English only. No example sentences, no saving.
 
 Format:
 **[English translation]**
