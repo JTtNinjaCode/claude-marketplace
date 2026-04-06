@@ -23,6 +23,7 @@ Only English inputs (word, phrase, sentence) can be saved. Chinese inputs and im
 
 Format:
 **[word/phrase]** /phonetic/ (omit phonetic for phrases)
+English: [concise English definition]
 Chinese: [meaning]
 
 Example sentences:
@@ -113,6 +114,7 @@ python3 "$CLAUDE_SKILL_DIR/scripts/save_vocab.py" \
 **Input:** `resilient` (no save)
 
 **resilient** /rɪˈzɪliənt/
+English: able to recover quickly from difficult situations
 Chinese: 有韌性的、能快速恢復的
 
 Example sentences:
@@ -128,6 +130,7 @@ Example sentences:
 **Input:** `resilient -s` (save)
 
 **resilient** /rɪˈzɪliənt/
+English: able to recover quickly from difficult situations
 Chinese: 有韌性的、能快速恢復的
 
 Example sentences:
