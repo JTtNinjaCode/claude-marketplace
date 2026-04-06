@@ -32,8 +32,6 @@ def sync_anki(data):
         for v in data["vocabulary"]:
             front = v["word"]
             back = v["translation"]
-            if v.get("example"):
-                back += "<br><i>" + v["example"] + "</i>"
             tags = "english"
             # tab-separated, escape tabs in fields just in case
             row = "\t".join([
