@@ -1,25 +1,30 @@
-# Brian's Claude Skills Plugin
+# Claude Marketplace
 
-個人化 Claude Code skill plugin 集合。
+A personal collection of Claude Code skill plugins.
 
 ## Skills
 
-| Skill | 指令 | 說明 |
-|-------|------|------|
-| English | `/brian-skills:english [單字/句子]` | 英文學習助手 |
+| Skill | Command | Description |
+|-------|---------|-------------|
+| english-learn | `/english-learn [input] [-s]` | English learning assistant — translate words/phrases/sentences, solve exam questions, and process images. Add `-s` to save to vocabulary list. |
+| english-quiz | `/english-quiz` | Fill-in-the-blank quiz pulled from your local `vocabulary.json`. 3 questions per round with instant feedback. |
 
-## 安裝
+## Installation
 
 ```bash
 /plugin install <path-or-url>
 ```
 
-## 開發新 Skill
+## Adding a New Skill
 
-在 `skills/` 下建立新目錄，加入 `SKILL.md`：
+Create a new directory under `skills/` with a `SKILL.md` inside:
 
 ```
 skills/
   <skill-name>/
     SKILL.md
 ```
+
+## License
+
+MIT

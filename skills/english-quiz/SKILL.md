@@ -1,85 +1,83 @@
 ---
 name: english-quiz
-description: 從當前目錄的 vocabulary.json 出英文填空測驗，每次3題，批改完立刻可繼續。題型包含：單字填空、片語填空、英文句子翻譯填空。適合複習 english-learn 記錄的單字。
+description: Fill-in-the-blank vocabulary quiz pulled from vocabulary.json in the current directory. 3 questions per round with instant grading. Question types include English-to-Chinese blanks, Chinese-to-English blanks, and English sentence translation blanks. Best used alongside english-learn.
 allowed-tools: Read Bash
 ---
 
-使用者英文程度為 B2。每次出 3 題，批改完立刻可以繼續下一輪。
+The user's English level is B2. Give 3 questions per round, grade immediately, then ask if they want to continue.
 
-## 流程
+## Flow
 
-1. 用 Bash 讀取當前目錄的 `vocabulary.json`
-2. 若檔案不存在或單字少於 3 個，提示用 `/english-learn` 先記錄單字
-3. 隨機抽 3 個單字/片語，各自隨機選一種填空題型出題
-4. 列出 3 題，等使用者作答
-5. 立刻批改，給解析
-6. 詢問是否繼續下一輪
+1. Read `vocabulary.json` from the current directory using Bash
+2. If the file does not exist or has fewer than 3 entries, prompt the user to add words with `/english-learn -s`
+3. Randomly pick 3 entries, assign each a random question type
+4. Present all 3 questions, wait for answers
+5. Grade immediately with brief feedback
+6. Ask if they want another round
 
-## 題型（全部為填空）
+## Question Types (all fill-in-the-blank)
 
-### 題型 A：英翻中填空
-給例句的英文，中文翻譯挖掉關鍵詞。
+### Type A: English → Chinese blank
+Show an English sentence, give a partial Chinese translation with a key word blanked out.
 
 ```
-Q1. 填入正確的中文：
+Q1. Fill in the correct Chinese word:
 "She remained resilient despite the setbacks."
 → 她儘管遭遇挫折，依然______不拔。
 ```
 
-### 題型 B：中翻英填空
-給中文句子，英文翻譯挖掉該單字或片語。
+### Type B: Chinese → English blank
+Show a Chinese sentence, give a partial English translation with the target word blanked out.
 
 ```
-Q2. 填入正確的英文單字或片語：
+Q2. Fill in the correct English word or phrase:
 「我們應該試試看這個新方法。」
 → We should ________ this new approach.
 ```
 
-### 題型 C：英文句子→中文翻譯填空
-給一個英文句子（可以是新句，不限於例句），
-給出部分中文翻譯，挖掉 1-2 個關鍵詞。
+### Type C: English sentence → Chinese translation blank
+Show an English sentence (may be new, not limited to the stored example), give a partial Chinese translation with 1–2 key words blanked out.
 
 ```
-Q3. 閱讀句子，填入正確的中文詞語：
+Q3. Read the sentence and fill in the missing Chinese words:
 "The project was put on hold due to budget constraints."
 → 這個計畫因為預算______而被______。
 ```
 
-挖空的詞要是真正考驗理解的關鍵詞，不要挖虛詞或過於簡單的詞。
+Only blank out words that genuinely test comprehension. Do not blank out function words or overly simple words.
 
-## 出題格式
+## Question Format
 
 ```
-📝 第 N 輪
+📝 Round N
 ──────────────────
-Q1. [題型說明]
-[題目內容]
+Q1. [type description]
+[question content]
 
-Q2. [題型說明]
-[題目內容]
+Q2. [type description]
+[question content]
 
-Q3. [題型說明]
-[題目內容]
+Q3. [type description]
+[question content]
 ──────────────────
 ```
 
-## 批改格式
+## Grading Format
 
-批改要快、清楚，答錯才給解析。答對時，若該單字有常見高頻同義詞（日常英文中真的會用到的），順帶一提；生僻或過於正式的同義詞不需要提。
+Keep it fast and clear. Only explain when the answer is wrong. If the answer is correct and the word has common, high-frequency synonyms that are actually used in everyday English, mention 1–2 briefly. Skip obscure or overly formal synonyms.
 
 ```
-✅ Q1. 正確！resilient 也可以說 tough（口語）或 adaptable（強調適應力）。
-❌ Q2. 你答：insist，正確答案：persist
-   → persist 是「持續做某事（面對困難不放棄）」
-     insist 是「堅持某個主張或要求」，語意不同。
-   同義詞：persevere（語氣更強，強調毅力）、keep at it（口語）
-✅ Q3. 正確！
+✅ Q1. Correct! resilient can also be expressed as tough (informal) or adaptable (emphasizing flexibility).
+❌ Q2. Your answer: insist — Correct answer: persist
+   → persist means to continue doing something despite difficulty.
+     insist means to firmly demand or maintain a position. Different meaning.
+   Synonyms: persevere (stronger tone), keep at it (informal)
+✅ Q3. Correct!
 ```
 
-同義詞只提 1-2 個、常見且實用的，不需要列清單。
-答對沒有同義詞可提就直接說「正確！」，不要硬湊。
+If there is nothing worth noting for a correct answer, just say "Correct!"
 
-批改完：
+After grading:
 ```
-繼續下一輪？輸入任意內容即可。
+Continue to the next round? Type anything to go on.
 ```

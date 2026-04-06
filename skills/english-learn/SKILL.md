@@ -1,97 +1,97 @@
 ---
 name: english-learn
-description: 英文學習工具（使用者程度 B2）。支援多種輸入：英文單字/片語→繁中翻譯+造句、中文單字→英文翻譯+造句、中文句子→英文翻譯、圖片→判斷是否為考題再決定處理方式。加上 -s 才會記錄至單字表。
+description: English learning tool for B2-level learners. Supports multiple input types — English word/phrase → Traditional Chinese translation + example sentences, Chinese word → English translation + example sentences, Chinese sentence → English translation only, image → solve exam questions or translate content. Append -s to save to vocabulary list.
 allowed-tools: Bash
 ---
 
-使用者英文程度為 B2，造句與解說的難度請對應 B2。
+The user's English level is B2. Keep example sentences and explanations at B2 difficulty.
 
-根據輸入類型自動判斷，直接給結果，不要多餘說明。
+Detect the input type automatically and respond directly without unnecessary commentary.
 
-## 記錄選項
+## Save Option
 
-輸入結尾加上 `-s` 才會記錄至單字表，預設不記錄。
+Append `-s` to save the entry to the vocabulary list. Default is no saving.
 
-- 記錄：`resilient -s`
-- 不記錄：`resilient`
+- Save: `resilient -s`
+- No save: `resilient`
 
-只有英文輸入（單字、片語、句子）可記錄，中文輸入和圖片永遠不記錄。
-
----
-
-## 類型一：英文單字或片語
-
-格式：
-**[單字/片語]** /音標/（片語不需音標）
-繁中：[意思]
-
-造句：
-1. [句子] → [中文]
-2. [句子] → [中文]
-3. [句子] → [中文]
-
-若有 `-s`，完成後記錄至單字表（見「單字表記錄規則」），並輸出「*已記錄至單字表。*」。
+Only English inputs (word, phrase, sentence) can be saved. Chinese inputs and images are never saved.
 
 ---
 
-## 類型一B：英文句子
+## Type 1: English Word or Phrase
 
-翻譯成繁中。
+Format:
+**[word/phrase]** /phonetic/ (omit phonetic for phrases)
+Chinese: [meaning]
 
-格式：
-**[繁中翻譯]**
+Example sentences:
+1. [sentence] → [Chinese translation]
+2. [sentence] → [Chinese translation]
+3. [sentence] → [Chinese translation]
 
-若有 `-s`，完成後記錄（Front = 英文句子，Back = 繁中翻譯），並輸出「*已記錄至單字表。*」。
-
----
-
-## 類型二：中文單字
-
-格式：
-**[英文翻譯]**
-中文：[原文]
-
-造句：
-1. [句子] → [中文]
-2. [句子] → [中文]
-3. [句子] → [中文]
-
-永遠不記錄。
+If `-s` is present, save to vocabulary list (see Vocabulary Save Rules) and output: *Saved to vocabulary list.*
 
 ---
 
-## 類型三：中文句子
+## Type 2: English Sentence
 
-只翻譯成英文，不造句，不記錄。
+Translate to Traditional Chinese only.
 
-格式：
-**[英文翻譯]**
+Format:
+**[Traditional Chinese translation]**
 
----
-
-## 類型四：圖片（使用者直接貼上）
-
-圖片由使用者直接貼入對話，不需讀取檔案，永遠不記錄單字表。
-
-### 4A：英文考題（多益、托福、學測、指考、各科英文題目等）
-
-辨識標誌：有選項（A/B/C/D）、填空題、閱讀測驗、語法題等。
-
-1. **答案**（直接給）
-2. **解析**（繁中，針對 B2，說明為什麼）
-
-逐題作答，不需重述題目。
-
-### 4B：其他英文內容（教科書、文章、說明文字等）
-
-只翻譯成繁體中文，不分析，不造句。
+If `-s` is present, save (Front = English sentence, Back = Chinese translation) and output: *Saved to vocabulary list.*
 
 ---
 
-## 單字表記錄規則
+## Type 3: Chinese Word
 
-用 Bash 呼叫 `$CLAUDE_SKILL_DIR/scripts/save_vocab.py`，
-同時更新當前目錄的 `vocabulary.json` 和 `anki_export.txt`。
+Format:
+**[English translation]**
+Chinese: [original]
+
+Example sentences:
+1. [sentence] → [Chinese translation]
+2. [sentence] → [Chinese translation]
+3. [sentence] → [Chinese translation]
+
+Never save.
+
+---
+
+## Type 4: Chinese Sentence
+
+Translate to English only. No example sentences, no saving.
+
+Format:
+**[English translation]**
+
+---
+
+## Type 5: Image (pasted directly by the user)
+
+The user pastes the image into the conversation — no file reading needed. Never save to vocabulary list.
+
+### 5A: English Exam Question (TOEIC, TOEFL, GSAT, etc.)
+
+Identifiers: multiple choice (A/B/C/D), fill-in-the-blank, reading comprehension, grammar questions, etc.
+
+1. **Answer** (state directly)
+2. **Explanation** (in Traditional Chinese, targeting B2 level)
+
+Answer each question in order. Do not restate the question.
+
+### 5B: Other English Content (textbooks, articles, instructions, etc.)
+
+Translate to Traditional Chinese only. No analysis, no example sentences.
+
+---
+
+## Vocabulary Save Rules
+
+Use Bash to call `$CLAUDE_SKILL_DIR/scripts/save_vocab.py`.
+This updates both `vocabulary.json` and `anki_export.txt` in the current working directory.
 
 ```bash
 python3 "$CLAUDE_SKILL_DIR/scripts/save_vocab.py" \
@@ -102,20 +102,20 @@ python3 "$CLAUDE_SKILL_DIR/scripts/save_vocab.py" \
   --source "SOURCE"
 ```
 
-- `--type`：adj / n / v / phrase 等
-- `--example`：第一句造句（句子類型則留空）
-- `--source`：`manual`
+- `--type`: adj / n / v / phrase / sentence
+- `--example`: first example sentence (leave empty for sentence type)
+- `--source`: `manual`
 
 ---
 
-## 範例
+## Examples
 
-**輸入：** `resilient`（不記錄）
+**Input:** `resilient` (no save)
 
 **resilient** /rɪˈzɪliənt/
-繁中：有韌性的、能快速恢復的
+Chinese: 有韌性的、能快速恢復的
 
-造句：
+Example sentences:
 1. She remained resilient despite the setbacks.
    → 儘管遭遇挫折，她依然堅韌不拔。
 2. Children are often more resilient than adults think.
@@ -125,12 +125,12 @@ python3 "$CLAUDE_SKILL_DIR/scripts/save_vocab.py" \
 
 ---
 
-**輸入：** `resilient -s`（記錄）
+**Input:** `resilient -s` (save)
 
 **resilient** /rɪˈzɪliənt/
-繁中：有韌性的、能快速恢復的
+Chinese: 有韌性的、能快速恢復的
 
-造句：
+Example sentences:
 1. She remained resilient despite the setbacks.
    → 儘管遭遇挫折，她依然堅韌不拔。
 2. Children are often more resilient than adults think.
@@ -138,16 +138,16 @@ python3 "$CLAUDE_SKILL_DIR/scripts/save_vocab.py" \
 3. The economy proved resilient in the face of the crisis.
    → 面對危機，經濟展現了強大的復原力。
 
-*已記錄至單字表。*
+*Saved to vocabulary list.*
 
 ---
 
-**輸入：** `韌性`
+**Input:** `韌性`
 
 **resilience**
-中文：韌性
+Chinese: 韌性
 
-造句：
+Example sentences:
 1. Building resilience takes time and practice.
    → 培養韌性需要時間和練習。
 2. Her resilience in the face of adversity inspired everyone.
@@ -157,6 +157,6 @@ python3 "$CLAUDE_SKILL_DIR/scripts/save_vocab.py" \
 
 ---
 
-**輸入：** `我需要更多時間思考這件事`
+**Input:** `我需要更多時間思考這件事`
 
 **I need more time to think this over.**
