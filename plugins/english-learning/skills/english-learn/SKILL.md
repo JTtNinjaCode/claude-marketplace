@@ -85,7 +85,7 @@ Answer each question in order. Do not restate the question.
 
 ### 5B: Other English Content (textbooks, articles, instructions, etc.)
 
-Translate to Traditional Chinese only. No analysis, no example sentences.
+Translate sentence by sentence: output each original English sentence, then its Traditional Chinese translation on the next line prefixed with `→`. No analysis, no example sentences.
 
 ---
 
@@ -163,3 +163,16 @@ Example sentences:
 **Input:** `我需要更多時間思考這件事`
 
 **I need more time to think this over.**
+
+---
+
+**Input:** [Image of an English article/textbook passage]
+
+I am, as it were, only a coach.
+→ 我就像是一位教練。
+
+I cannot run the mile for you; at best I can discuss styles and criticize yours.
+→ 我無法替你跑那一英里；我最多只能討論風格並批評你的表現。
+
+You know you must run the mile if the athletics course is to be of benefit to you.
+→ 你知道，如果這門體育課要對你有益，你必須自己去跑。
