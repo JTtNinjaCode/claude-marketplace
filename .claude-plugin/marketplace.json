@@ -1,0 +1,23 @@
+{
+  "name": "jtt-ninja-marketplace",
+  "owner": {
+    "name": "JTtNinjaCode"
+  },
+  "metadata": {
+    "description": "A personal Claude Code plugin marketplace — skills, MCP servers, and tools for everyday use.",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "english-learning",
+      "source": "./plugins/english-learning",
+      "description": "English learning skills for B2-level learners. Includes vocabulary lookup, sentence translation, exam solving, and a fill-in-the-blank quiz with Anki export.",
+      "version": "1.0.0",
+      "author": {
+        "name": "JTtNinjaCode"
+      },
+      "license": "MIT",
+      "keywords": ["english", "learning", "vocabulary", "anki", "toeic", "toefl"]
+    }
+  ]
+}

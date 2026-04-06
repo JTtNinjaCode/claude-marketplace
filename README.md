@@ -1,29 +1,44 @@
-# Claude Marketplace
+# JTtNinja Claude Marketplace
 
-A personal collection of Claude Code skill plugins.
+A personal Claude Code plugin marketplace — skills, MCP servers, and tools for everyday use.
 
-## Skills
+## Plugins
 
-| Skill | Command | Description |
-|-------|---------|-------------|
-| english-learn | `/english-learn [input] [-s]` | English learning assistant — translate words/phrases/sentences, solve exam questions, and process images. Add `-s` to save to vocabulary list. |
-| english-quiz | `/english-quiz` | Fill-in-the-blank quiz pulled from your local `vocabulary.json`. 3 questions per round with instant feedback. |
+| Plugin | Description |
+|--------|-------------|
+| [english-learning](./plugins/english-learning/) | English learning skills for B2-level learners — vocabulary lookup, translation, exam solving, Anki export |
 
 ## Installation
 
-```bash
-/plugin install <path-or-url>
-```
-
-## Adding a New Skill
-
-Create a new directory under `skills/` with a `SKILL.md` inside:
+Add this marketplace to Claude Code:
 
 ```
-skills/
-  <skill-name>/
-    SKILL.md
+/plugin marketplace add JTtNinjaCode/claude-marketplace
 ```
+
+Then install a plugin:
+
+```
+/plugin install english-learning@jtt-ninja-marketplace
+```
+
+## Structure
+
+```
+claude-marketplace/
+├── .claude-plugin/
+│   └── marketplace.json       # Marketplace index
+├── plugins/
+│   └── english-learning/      # Plugin directory
+│       ├── .claude-plugin/
+│       │   └── plugin.json
+│       ├── skills/            # Skill definitions
+│       └── README.md
+├── LICENSE
+└── README.md
+```
+
+Each plugin can contain skills, MCP servers, hooks, agents, and more.
 
 ## License
 
