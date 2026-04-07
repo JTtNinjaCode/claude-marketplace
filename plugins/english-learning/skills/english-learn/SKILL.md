@@ -30,12 +30,12 @@ English: [concise English definition]
 Chinese: [meaning]
 
 Example sentences:
-1. [English sentence]
-   → [Chinese translation]
-2. [English sentence]
-   → [Chinese translation]
-3. [English sentence]
-   → [Chinese translation]
+1. en: [English sentence]
+   zh: [Chinese translation]
+2. en: [English sentence]
+   zh: [Chinese translation]
+3. en: [English sentence]
+   zh: [Chinese translation]
 
 If `-s` is present, save to vocabulary list (see Vocabulary Save Rules) and output: *Saved to vocabulary list.*
 
@@ -59,12 +59,12 @@ Format:
 Chinese: [original]
 
 Example sentences:
-1. [English sentence]
-   → [Chinese translation]
-2. [English sentence]
-   → [Chinese translation]
-3. [English sentence]
-   → [Chinese translation]
+1. en: [English sentence]
+   zh: [Chinese translation]
+2. en: [English sentence]
+   zh: [Chinese translation]
+3. en: [English sentence]
+   zh: [Chinese translation]
 
 Never save.
 
@@ -139,12 +139,12 @@ English: able to recover quickly from difficult situations
 Chinese: 有韌性的、能快速恢復的
 
 Example sentences:
-1. She remained resilient despite the setbacks.
-   → 儘管遭遇挫折，她依然堅韌不拔。
-2. Children are often more resilient than adults think.
-   → 孩子往往比大人以為的更有韌性。
-3. The economy proved resilient in the face of the crisis.
-   → 面對危機，經濟展現了強大的復原力。
+1. en: She remained resilient despite the setbacks.
+   zh: 儘管遭遇挫折，她依然堅韌不拔。
+2. en: Children are often more resilient than adults think.
+   zh: 孩子往往比大人以為的更有韌性。
+3. en: The economy proved resilient in the face of the crisis.
+   zh: 面對危機，經濟展現了強大的復原力。
 
 ---
 
@@ -155,12 +155,12 @@ English: able to recover quickly from difficult situations
 Chinese: 有韌性的、能快速恢復的
 
 Example sentences:
-1. She remained resilient despite the setbacks.
-   → 儘管遭遇挫折，她依然堅韌不拔。
-2. Children are often more resilient than adults think.
-   → 孩子往往比大人以為的更有韌性。
-3. The economy proved resilient in the face of the crisis.
-   → 面對危機，經濟展現了強大的復原力。
+1. en: She remained resilient despite the setbacks.
+   zh: 儘管遭遇挫折，她依然堅韌不拔。
+2. en: Children are often more resilient than adults think.
+   zh: 孩子往往比大人以為的更有韌性。
+3. en: The economy proved resilient in the face of the crisis.
+   zh: 面對危機，經濟展現了強大的復原力。
 
 *Saved to vocabulary list.*
 
@@ -172,12 +172,12 @@ Example sentences:
 Chinese: 韌性
 
 Example sentences:
-1. Building resilience takes time and practice.
-   → 培養韌性需要時間和練習。
-2. Her resilience in the face of adversity inspired everyone.
-   → 她面對逆境時的韌性激勵了所有人。
-3. Mental resilience is just as important as physical strength.
-   → 心理韌性和體能一樣重要。
+1. en: Building resilience takes time and practice.
+   zh: 培養韌性需要時間和練習。
+2. en: Her resilience in the face of adversity inspired everyone.
+   zh: 她面對逆境時的韌性激勵了所有人。
+3. en: Mental resilience is just as important as physical strength.
+   zh: 心理韌性和體能一樣重要。
 
 ---
 

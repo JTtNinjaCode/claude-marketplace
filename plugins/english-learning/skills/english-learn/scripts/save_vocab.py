@@ -43,9 +43,9 @@ def build_anki_back(v):
             en = ex.get("en", "")
             zh = ex.get("zh", "")
             if en:
-                parts.append(f"{i}. {en}")
+                parts.append(f"{i}. en: {en}")
             if zh:
-                parts.append(f"&nbsp;&nbsp;→ {zh}")
+                parts.append(f"&nbsp;&nbsp;zh: {zh}")
     return "<br>".join(parts)
 
 
