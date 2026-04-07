@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 """
 Save vocabulary to vocabulary.json and sync to anki_export.txt.
-Usage: python3 save_vocab.py --word WORD --type TYPE --translation TRANS --example EXAMPLE --source SOURCE
+Usage: python3 save_vocab.py --word WORD --type TYPE --translation TRANS
+         --definition DEF
+         --ex1 EN1 --ex1_zh ZH1
+         --ex2 EN2 --ex2_zh ZH2
+         --ex3 EN3 --ex3_zh ZH3
+         --source SOURCE
 """
 
 import argparse
@@ -26,14 +31,31 @@ def save_vocab(data):
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
+def build_anki_back(v):
+    parts = []
+    parts.append(v["translation"])
+    if v.get("definition"):
+        parts.append(f"<i>{v['definition']}</i>")
+    examples = v.get("examples", [])
+    if examples:
+        parts.append("")
+        for i, ex in enumerate(examples, 1):
+            en = ex.get("en", "")
+            zh = ex.get("zh", "")
+            if en:
+                parts.append(f"{i}. {en}")
+            if zh:
+                parts.append(f"&nbsp;&nbsp;→ {zh}")
+    return "<br>".join(parts)
+
+
 def sync_anki(data):
     with open(ANKI_FILE, "w", encoding="utf-8") as f:
         f.write(ANKI_HEADER)
         for v in data["vocabulary"]:
             front = v["word"]
-            back = v["translation"]
+            back = build_anki_back(v)
             tags = "english"
-            # tab-separated, escape tabs in fields just in case
             row = "\t".join([
                 front.replace("\t", " "),
                 back.replace("\t", " "),
@@ -47,9 +69,20 @@ def main():
     parser.add_argument("--word", required=True)
     parser.add_argument("--type", default="")
     parser.add_argument("--translation", required=True)
-    parser.add_argument("--example", default="")
+    parser.add_argument("--definition", default="")
+    parser.add_argument("--ex1", default="")
+    parser.add_argument("--ex1_zh", default="")
+    parser.add_argument("--ex2", default="")
+    parser.add_argument("--ex2_zh", default="")
+    parser.add_argument("--ex3", default="")
+    parser.add_argument("--ex3_zh", default="")
     parser.add_argument("--source", default="manual")
     args = parser.parse_args()
+
+    examples = []
+    for en, zh in [(args.ex1, args.ex1_zh), (args.ex2, args.ex2_zh), (args.ex3, args.ex3_zh)]:
+        if en:
+            examples.append({"en": en, "zh": zh})
 
     data = load_vocab()
     existing = {v["word"].lower() for v in data["vocabulary"]}
@@ -61,7 +94,8 @@ def main():
             "word": args.word,
             "type": args.type,
             "translation": args.translation,
-            "example": args.example,
+            "definition": args.definition,
+            "examples": examples,
             "source": args.source,
             "date": str(datetime.date.today()),
         }

@@ -23,15 +23,16 @@ Only English inputs (word, phrase, sentence) can be saved. Chinese inputs and im
 
 ## Type 1: English Word or Phrase
 
-Format:
+Always use this exact format — do not change the labels or structure:
+
 **[word/phrase]** /phonetic/ (omit phonetic for phrases)
 English: [concise English definition]
 Chinese: [meaning]
 
 Example sentences:
-1. [sentence] → [Chinese translation]
-2. [sentence] → [Chinese translation]
-3. [sentence] → [Chinese translation]
+1. [English sentence] → [Chinese translation]
+2. [English sentence] → [Chinese translation]
+3. [English sentence] → [Chinese translation]
 
 If `-s` is present, save to vocabulary list (see Vocabulary Save Rules) and output: *Saved to vocabulary list.*
 
@@ -96,17 +97,29 @@ Translate sentence by sentence: output each original English sentence, then its 
 Use Bash to call `$CLAUDE_SKILL_DIR/scripts/save_vocab.py`.
 This updates both `vocabulary.json` and `anki_export.txt` in the current working directory.
 
+**For Type 1 (word/phrase):**
 ```bash
 python3 "$CLAUDE_SKILL_DIR/scripts/save_vocab.py" \
   --word "WORD" \
   --type "TYPE" \
   --translation "TRANS" \
-  --example "EXAMPLE" \
-  --source "SOURCE"
+  --definition "ENGLISH_DEFINITION" \
+  --ex1 "EXAMPLE_EN_1" --ex1_zh "EXAMPLE_ZH_1" \
+  --ex2 "EXAMPLE_EN_2" --ex2_zh "EXAMPLE_ZH_2" \
+  --ex3 "EXAMPLE_EN_3" --ex3_zh "EXAMPLE_ZH_3" \
+  --source "manual"
+```
+
+**For Type 2 (sentence):**
+```bash
+python3 "$CLAUDE_SKILL_DIR/scripts/save_vocab.py" \
+  --word "ENGLISH_SENTENCE" \
+  --type "sentence" \
+  --translation "CHINESE_TRANSLATION" \
+  --source "manual"
 ```
 
 - `--type`: adj / n / v / phrase / sentence
-- `--example`: first example sentence (leave empty for sentence type)
 - `--source`: `manual`
 
 ---
