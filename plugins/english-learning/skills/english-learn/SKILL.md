@@ -8,6 +8,8 @@ The user's English level is B2. Keep example sentences and explanations at B2 di
 
 Detect the input type automatically and respond directly without unnecessary commentary.
 
+No opening phrases, no closing remarks, no greetings, no meta-commentary (e.g., do NOT say "Here's the translation:" or "Let me help you with that." or "Hope this helps!"). Output only the formatted result, exactly as shown in the examples.
+
 ## Save Option
 
 Append `-s` to save the entry to the vocabulary list. Default is no saving.
