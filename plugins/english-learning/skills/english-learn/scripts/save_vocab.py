@@ -39,13 +39,14 @@ def build_anki_back(v):
     examples = v.get("examples", [])
     if examples:
         parts.append("")
-        for i, ex in enumerate(examples, 1):
+        for ex in examples:
             en = ex.get("en", "")
             zh = ex.get("zh", "")
             if en:
-                parts.append(f"{i}. en: {en}")
+                parts.append(f"en: {en}")
             if zh:
-                parts.append(f"&nbsp;&nbsp;zh: {zh}")
+                parts.append(f"zh: {zh}")
+            parts.append("")
     return "<br>".join(parts)
 
 
