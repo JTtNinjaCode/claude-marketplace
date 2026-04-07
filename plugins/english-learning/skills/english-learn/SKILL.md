@@ -30,9 +30,12 @@ English: [concise English definition]
 Chinese: [meaning]
 
 Example sentences:
-1. [English sentence] → [Chinese translation]
-2. [English sentence] → [Chinese translation]
-3. [English sentence] → [Chinese translation]
+1. [English sentence]
+   → [Chinese translation]
+2. [English sentence]
+   → [Chinese translation]
+3. [English sentence]
+   → [Chinese translation]
 
 If `-s` is present, save to vocabulary list (see Vocabulary Save Rules) and output: *Saved to vocabulary list.*
 
@@ -56,9 +59,12 @@ Format:
 Chinese: [original]
 
 Example sentences:
-1. [sentence] → [Chinese translation]
-2. [sentence] → [Chinese translation]
-3. [sentence] → [Chinese translation]
+1. [English sentence]
+   → [Chinese translation]
+2. [English sentence]
+   → [Chinese translation]
+3. [English sentence]
+   → [Chinese translation]
 
 Never save.
 
