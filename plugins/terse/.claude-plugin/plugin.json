@@ -1,0 +1,22 @@
+{
+  "name": "terse",
+  "description": "Terse communication mode. Drops filler and pleasantries, keeps grammar and full technical accuracy. Always active.",
+  "author": {
+    "name": "JTtNinjaCode",
+    "url": "https://github.com/JTtNinjaCode"
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/terse.py",
+            "timeout": 5,
+            "statusMessage": "Loading terse mode..."
+          }
+        ]
+      }
+    ]
+  }
+}
