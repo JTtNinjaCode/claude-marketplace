@@ -7,6 +7,7 @@ A personal Claude Code plugin marketplace — skills, MCP servers, and tools for
 | Plugin | Description |
 |--------|-------------|
 | [english-learning](./plugins/english-learning/) | English learning skills for B2-level learners — vocabulary lookup, translation, exam solving, Anki export |
+| [terse](./plugins/terse/) | Terse communication mode — drops filler and pleasantries, keeps grammar and full technical accuracy. Always active via SessionStart hook |
 
 ## Installation
 
@@ -29,11 +30,16 @@ claude-marketplace/
 ├── .claude-plugin/
 │   └── marketplace.json       # Marketplace index
 ├── plugins/
-│   └── english-learning/      # Plugin directory
+│   ├── english-learning/      # Plugin directory
+│   │   ├── .claude-plugin/
+│   │   │   └── plugin.json
+│   │   ├── skills/            # Skill definitions
+│   │   └── README.md
+│   └── terse/                 # Plugin directory
 │       ├── .claude-plugin/
 │       │   └── plugin.json
-│       ├── skills/            # Skill definitions
-│       └── README.md
+│       └── hooks/             # SessionStart hook
+│           └── terse.py
 ├── LICENSE
 └── README.md
 ```
