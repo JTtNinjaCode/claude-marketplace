@@ -14,6 +14,12 @@
             "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/terse.py",
             "timeout": 5,
             "statusMessage": "Loading terse mode..."
+          },
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/terse-zh.py",
+            "timeout": 5,
+            "statusMessage": "載入簡潔模式..."
           }
         ]
       }
