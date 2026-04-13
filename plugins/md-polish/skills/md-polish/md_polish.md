@@ -16,6 +16,14 @@ Target: English or English-dominant Markdown files.
 - **Whitespace**: trailing spaces, collapse multiple blank lines to one, missing blank line before/after headings and fenced code blocks
 - **Horizontal rules**: remove `---`, `***`, `___` decorative dividers (and their surrounding blank lines)
 - **LaTeX**: wrap bare math tokens missing `$` — single-letter variables (`i`, `n`, `k`, `x`), expressions (`i+1`, `O(n)`, `x^2`, `x_i`). Only when clearly math, not English words or code.
+- **Display math**: `$$` opening and `$$` closing must each be on their own line, not sharing a line with other content. `$...$` inline math is exempt.
+  - Wrong: `$$Q = \begin{pmatrix}...$$` (`$$` on same line as content)
+  - Correct:
+    ```
+    $$
+    Q = \begin{pmatrix}...
+    $$
+    ```
 
 ## Hard limits
 
