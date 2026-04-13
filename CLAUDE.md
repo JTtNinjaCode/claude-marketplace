@@ -9,3 +9,7 @@ Every plugin modification requires a version bump in `plugins/<name>/.claude-plu
 - Breaking change → major bump (1.0.0 → 2.0.0)
 
 This applies to all plugins in this repo: `terse`, `english-learning`, `commit-convention`.
+
+## Git Workflow
+
+Push directly to `main`. No feature branches or PRs.
