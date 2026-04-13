@@ -1,0 +1,10 @@
+{
+  "name": "md-polish",
+  "description": "Polishes Markdown files by fixing typos, punctuation, and consistency without rewriting content.",
+  "version": "1.0.0",
+  "author": {
+    "name": "JTtNinjaCode"
+  },
+  "license": "MIT",
+  "keywords": ["markdown", "typo", "polish", "proofreading", "consistency"]
+}
