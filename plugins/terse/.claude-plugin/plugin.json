@@ -1,11 +1,5 @@
 {
   "name": "terse",
-  "version": "1.1.0",
-  "description": "Terse communication mode. Drops filler and pleasantries, keeps grammar and full technical accuracy. Always active.",
-  "author": {
-    "name": "JTtNinjaCode",
-    "url": "https://github.com/JTtNinjaCode"
-  },
   "hooks": {
     "SessionStart": [
       {
