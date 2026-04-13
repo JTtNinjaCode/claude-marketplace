@@ -1,16 +1,12 @@
 ---
 name: md-polish
-description: Polish a Markdown file by fixing typos, punctuation, LaTeX formatting, and consistency — without rewriting content. Auto-detects Traditional Chinese vs English and applies language-appropriate rules. Use this skill whenever the user wants to proofread, clean up, fix typos, fix punctuation, or polish a .md file, even if they don't say "polish". Usage: /md-polish <file-path> [--report]
+description: Polish a Markdown file by fixing typos, punctuation, LaTeX formatting, and consistency — without rewriting content. Auto-detects Traditional Chinese vs English and applies language-appropriate rules. Use this skill whenever the user wants to proofread, clean up, fix typos, fix punctuation, or polish a .md file, even if they don't say "polish". Usage: /md-polish <file-path>
 allowed-tools: Read, Edit, Bash
 ---
 
-## Flags
-
-- `--report`: output a change report after applying fixes. Default is silent (no report).
-
 ## Step 1 — Read the target file
 
-Read the file provided by the user. Check whether `--report` is present in the arguments.
+Read the file provided by the user.
 
 ## Step 2 — Detect dominant language
 

@@ -6,7 +6,7 @@ Target: English or English-dominant Markdown files.
 
 1. Scan the file for all issues.
 2. Apply all fixes in-place using Edit tool.
-3. If `--report` was passed, output a change report. Otherwise, stay silent.
+3. Output only "Done" — nothing else.
 
 ## Scope — what to fix
 
@@ -24,34 +24,4 @@ Target: English or English-dominant Markdown files.
 - Do NOT add, remove, or reorder sections
 - Do NOT touch code inside fenced code blocks
 - Do NOT change URLs, file paths, or variable names
-- Skip ambiguous fixes — list them in Skipped
-
-## Change report format
-
-```
-Fixed: <file-path>  [English]
-
-Typos (N):
-- line X: "teh" → "the"
-
-Punctuation (N):
-- line X: "，" → ","
-- line X: "–" → "—"
-
-Consistency (N):
-- lines X, Y: list marker "*" → "-"
-
-LaTeX (N):
-- line X: `n` → `$n$`
-
-Horizontal rules (N):
-- line X: removed `---`
-
-Whitespace (N):
-- line X: trailing space
-
-Skipped (review manually):
-- line X: [reason]
-```
-
-Omit categories with 0 fixes.
+- Skip ambiguous fixes silently.
