@@ -20,7 +20,7 @@
             "type": "command",
             "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/terse-zh.py",
             "timeout": 5,
-            "statusMessage": "載入簡潔模式..."
+            "statusMessage": "Loading terse-zh mode..."
           }
         ]
       }
