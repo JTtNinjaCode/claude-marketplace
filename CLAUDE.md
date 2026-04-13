@@ -2,7 +2,9 @@
 
 ## Versioning
 
-Every plugin modification requires a version bump in `plugins/<name>/.claude-plugin/plugin.json`.
+Every plugin modification requires a version bump in `.claude-plugin/marketplace.json`.
+
+Do **not** put `version` in `plugins/<name>/.claude-plugin/plugin.json` — per official docs, only one place is needed. This repo uses `marketplace.json` as the single source of truth.
 
 - Bug fix or rule tweak → patch bump (1.0.0 → 1.0.1)
 - New rule or behavior → minor bump (1.0.0 → 1.1.0)
