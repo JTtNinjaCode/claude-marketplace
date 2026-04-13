@@ -15,3 +15,7 @@ This applies to all plugins in this repo: `terse`, `english-learning`, `commit-c
 ## Git Workflow
 
 Push directly to `main`. No feature branches or PRs.
+
+## README Maintenance
+
+When adding or modifying a plugin/skill, always check if `README.md` needs updating — especially the Plugins table (plugin list, descriptions).

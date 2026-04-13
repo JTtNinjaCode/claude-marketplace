@@ -6,7 +6,9 @@ A personal Claude Code plugin marketplace — skills, MCP servers, and tools for
 
 | Plugin | Description |
 |--------|-------------|
+| [commit-convention](./plugins/commit-convention/) | Enforces conventional commit format — validates messages, suggests types, and blocks non-conforming commits |
 | [english-learning](./plugins/english-learning/) | English learning skills for B2-level learners — vocabulary lookup, translation, exam solving, Anki export |
+| [md-polish](./plugins/md-polish/) | Polishes Markdown files — fixes typos, punctuation, LaTeX formatting, and consistency. Auto-detects Traditional Chinese vs English |
 | [terse](./plugins/terse/) | Terse communication mode — drops filler and pleasantries, keeps grammar and full technical accuracy. Always active via SessionStart hook |
 
 ## Installation
