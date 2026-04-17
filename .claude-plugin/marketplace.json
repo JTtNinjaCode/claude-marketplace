@@ -40,6 +40,17 @@
       },
       "license": "MIT",
       "keywords": ["markdown", "typo", "polish", "proofreading", "consistency"]
+    },
+    {
+      "name": "cmdref",
+      "source": "./plugins/cmdref",
+      "description": "Quick Linux command reference. Given a command name or screenshot, shows the most common usage patterns with concise examples in English.",
+      "version": "1.0.0",
+      "author": {
+        "name": "JTtNinjaCode"
+      },
+      "license": "MIT",
+      "keywords": ["linux", "bash", "command", "reference", "help", "cheatsheet"]
     }
   ]
 }

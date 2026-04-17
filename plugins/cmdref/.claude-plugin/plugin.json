@@ -1,0 +1,10 @@
+{
+  "name": "cmdref",
+  "description": "Quick Linux command reference. Given a command name or screenshot, shows the most common usage patterns with concise examples.",
+  "version": "1.0.0",
+  "author": {
+    "name": "JTtNinjaCode"
+  },
+  "license": "MIT",
+  "keywords": ["linux", "bash", "command", "reference", "help", "cheatsheet"]
+}
